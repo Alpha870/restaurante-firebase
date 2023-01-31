@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import db from "../firebase";
+import { doc, getDoc } from "firebase/firestore";
 
-function Formulario({ addOrEditar }) {
+function Formulario(props) {
   const estadoInicial = {
     nombre: "",
     telefono: "",
@@ -16,9 +18,25 @@ function Formulario({ addOrEditar }) {
 
   const clickSubmit = (e) => {
     e.preventDefault();
-    addOrEditar(valor);
+    props.addOrEditar(valor, props.idActual);
     setValor({ ...estadoInicial });
   };
+
+  const obtenerPorId = async (id) => {
+    const docRef = doc(db, "usuarios", `${id}`);
+    const docSnap = await getDoc(docRef);
+    setValor({ ...docSnap.data() });
+  };
+
+  useEffect(() => {
+    if (props.idActual === "") {
+      //si no tiene id el usuario no quiere actualizar
+      setValor({ ...estadoInicial });
+    } else {
+      //si tiene id el usuario quiere actualizar
+      obtenerPorId(props.idActual);
+    }
+  }, [props.idActual]);
 
   return (
     <form className="card card-body" onSubmit={clickSubmit}>
@@ -39,7 +57,7 @@ function Formulario({ addOrEditar }) {
           onChange={cambioInput}
           value={valor.telefono}
         />
-        
+
         <input
           type="date"
           className="form-control"
@@ -58,7 +76,7 @@ function Formulario({ addOrEditar }) {
         />
 
         <button type="submit" className="btn btn-primary mt-3">
-          Reservar
+          {props.idActual === "" ? "Reservar" : "Modifcar Reserva"}
         </button>
       </div>
     </form>
