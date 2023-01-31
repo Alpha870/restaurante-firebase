@@ -1,17 +1,23 @@
-import './App.css';
-import Controlador from './components/Controlador';
-import { ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/header/Navbar";
+import Home from "./components/home/Home";
+import Controlador from "./components/Controlador";
+
 
 function App() {
-
   return (
-    <div className="App">
-      <h1>Bienvenido</h1>
-      <Controlador />
-      <ToastContainer />
-    </div>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/reservas" element= {<Controlador/>} />
+        </Routes>
+      </Router>
+    </>
   );
 }
+
 
 export default App;
