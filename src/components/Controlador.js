@@ -20,7 +20,7 @@ function Controlador() {
 
   //AÑADE EL REGISTRO A DB O MODIFICA---------------------------
   const addOrEditar = async (reserva, id) => {
-  
+    
     if (idActual === "") {
       //añade
       await addDoc(collection(db, "usuarios"), reserva);
@@ -81,10 +81,11 @@ function Controlador() {
           datos.map((doc) => (
             <div key={doc.id} className="card mb-1">
               <div className="card-body">
-                <h6>{doc.nombre}</h6>
-                <h6>{doc.telefono}</h6>
-                <h6>{doc.fecha}</h6>
-                <h6>{doc.hora}</h6>
+                <h6>Id: {doc.id}</h6>
+                <h6>Nombre: {doc.nombre}</h6>
+                <h6>Telefono: {doc.telefono}</h6>
+                <h6>Fecha: {doc.fecha}</h6>
+                <h6>Hora: {doc.hora}</h6>
                 <button
                   type="button"
                   className="btn btn-warning me-2"

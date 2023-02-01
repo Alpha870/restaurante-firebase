@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import img from "./img/chatbot-kiu.gif";
 
@@ -7,36 +8,52 @@ const Home = () => {
   const [activar, setActivar] = useState(false);
 
   useEffect(() => {
+    // Convertir el texto a un array de letras
     const texto = Array.from(
-      `Buuenos dias y bienvenido al restaurante?
-         Soy tu asistente virtual.
+      `Enncantado de conocerte y bienvenido al restaurante.
+         Soy Kiu tu asistente virtual.
          Ya tienes tu reserva?
         `
     );
+    // Contador para ir letra por letra
     let index = 0;
-    const pushToVariable = () => {
-      setLetra((prevLetra) => prevLetra + texto[index]);
+    // Función para simular una máquina de escribir
+    const maquinaEscribir = () => {
+      // Añadir la letra actual al estado
+      setLetra((prevLetra) => [...prevLetra, texto[index]]);
+      // Aumentar el contador
       index++;
+      // Si todavía hay más letras en el texto, ejecutar la función de nuevo
+      //el -1 es para evitar el undefined
       if (index < texto.length - 1) {
-        setTimeout(pushToVariable, 100);
+        setTimeout(maquinaEscribir, 10);
       } else {
-        clearInterval(pushToVariable);
-        setActivar(!activar ? true : false && setActivar(true));
+        // Si se han escrito todas las letras, detener la función y establecer el estado en verdadero
+        clearInterval(maquinaEscribir);
+        setActivar(!activar ? true : false);
       }
     };
 
-    pushToVariable();
+    maquinaEscribir();
   }, []);
 
   return (
     <div className="homepage">
-      <img src={img} alt="imagen chatbot" width='auto' height='200px'/>
+      <img src={img} alt="imagen chatbot" width="auto" height="200px" />
       <div className="texto">
         <h2>{letra}</h2>
         {activar ? (
           <div className="botones">
-            <button>si</button>
-            <button>no</button>
+            <Link to={"/autenticar"}>
+              <button type="button" className="btn btn-info">
+                Si, la tengo
+              </button>
+            </Link>
+            <Link to={"/reservas"}>
+              <button type="button" className="btn btn-light">
+                No, quiero reservar
+              </button>
+            </Link>
           </div>
         ) : (
           <div></div>

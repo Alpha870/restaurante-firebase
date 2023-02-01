@@ -41,6 +41,7 @@ function Formulario(props) {
   return (
     <form className="card card-body" onSubmit={clickSubmit}>
       <div className="form-group">
+
         <input
           type="text"
           className="form-control"
