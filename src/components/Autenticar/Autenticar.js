@@ -14,8 +14,8 @@ const Autenticar = () => {
 
   useEffect(() => {
     const texto = Array.from(
-      `Peerfecto hagamos una pequeña comprobación. 
-       Puede darme su id?
+      `  Perfecto hagamos una pequeña comprobación. 
+      ¿Podrías escribir el ID de tú reserva?
         `
     );
 
@@ -25,7 +25,7 @@ const Autenticar = () => {
 
       index++;
       if (index < texto.length - 1) {
-        setTimeout(maquinaEscribir, 10);
+        setTimeout(maquinaEscribir, 100);
       } else {
         clearInterval(maquinaEscribir);
         setActivar(!activar ? true : false && setActivar(true));
@@ -46,7 +46,7 @@ const Autenticar = () => {
 
     if (docSnap.exists()) {
       setAceptar(true);
-      toast.success("Perfecto tiene reserva, buen provecho!", {
+      toast.success("Perfecto, tienes reserva!", {
         position: "top-center",
         autoClose: 2000,
         pauseOnHover: false,
@@ -54,7 +54,7 @@ const Autenticar = () => {
     } else {
       setAceptar(false);
       toast.error(
-        "Su id es incorrecto, introduzca un id válido o haga su reserva",
+        "Tu id es incorrecto, introduze un id válido o haz tu reserva",
         {
           position: "top-center",
           autoClose: 4000,

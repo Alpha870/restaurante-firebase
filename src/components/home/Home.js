@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import img from "./img/chatbot-kiu.gif";
+import img from "../img/chatbot-kiu.gif";
 
 const Home = () => {
   const [letra, setLetra] = useState("");
@@ -10,9 +10,9 @@ const Home = () => {
   useEffect(() => {
     // Convertir el texto a un array de letras
     const texto = Array.from(
-      `Enncantado de conocerte y bienvenido al restaurante.
-         Soy Kiu tu asistente virtual.
-         Ya tienes tu reserva?
+      `  Encantado de conocerte y bienvenido al restaurante.
+      Soy Kiu tu asistente virtual.
+      ¿Ya tienes tu reserva?
         `
     );
     // Contador para ir letra por letra
@@ -26,7 +26,7 @@ const Home = () => {
       // Si todavía hay más letras en el texto, ejecutar la función de nuevo
       //el -1 es para evitar el undefined
       if (index < texto.length - 1) {
-        setTimeout(maquinaEscribir, 10);
+        setTimeout(maquinaEscribir, 100);
       } else {
         // Si se han escrito todas las letras, detener la función y establecer el estado en verdadero
         clearInterval(maquinaEscribir);
