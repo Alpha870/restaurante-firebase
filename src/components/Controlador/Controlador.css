@@ -1,0 +1,24 @@
+.container-control{
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+    gap: 1rem
+}
+
+.tarjeta {
+    margin: 1rem 0.1rem;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container-control{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -25,7 +25,7 @@ const Autenticar = () => {
 
       index++;
       if (index < texto.length - 1) {
-        setTimeout(maquinaEscribir, 100);
+        setTimeout(maquinaEscribir, 80);
       } else {
         clearInterval(maquinaEscribir);
         setActivar(!activar ? true : false && setActivar(true));

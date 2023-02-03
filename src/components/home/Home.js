@@ -7,33 +7,37 @@ const Home = () => {
   const [letra, setLetra] = useState("");
   const [activar, setActivar] = useState(false);
 
-  useEffect(() => {
-    // Convertir el texto a un array de letras
-    const texto = Array.from(
-      `  Encantado de conocerte y bienvenido al restaurante.
-      Soy Kiu tu asistente virtual.
-      ¿Ya tienes tu reserva?
-        `
-    );
-    // Contador para ir letra por letra
-    let index = 0;
-    // Función para simular una máquina de escribir
-    const maquinaEscribir = () => {
-      // Añadir la letra actual al estado
-      setLetra((prevLetra) => [...prevLetra, texto[index]]);
-      // Aumentar el contador
-      index++;
-      // Si todavía hay más letras en el texto, ejecutar la función de nuevo
-      //el -1 es para evitar el undefined
-      if (index < texto.length - 1) {
-        setTimeout(maquinaEscribir, 100);
-      } else {
-        // Si se han escrito todas las letras, detener la función y establecer el estado en verdadero
-        clearInterval(maquinaEscribir);
-        setActivar(!activar ? true : false);
-      }
-    };
+  // Convertir el texto a un array de letras
+  const texto = Array.from(
+    `  Encantado de conocerte y bienvenido al restaurante.
+    Soy Kiu tu asistente virtual. Te estaré acompañando en
+    todo momento.
+    ¿Ya tienes tu reserva?
+    `
+  );
+  // Contador para ir letra por letra
+  let index = 0;
 
+  // Función para simular una máquina de escribir
+  const maquinaEscribir = () => {
+    // recibe el valor anterior de letra (prevLetra) y devuelve un nuevo array 
+    // que contiene todas las letras previas más la letra actual (texto[index]).
+    setLetra((prevLetra) => [...prevLetra, texto[index]]);
+    // Aumentar el contador
+    index++;
+    // Si todavía hay más letras en el texto, ejecutar la función de nuevo
+    //el -1 es para evitar que escriba el undefined
+    if (index < texto.length - 1) {
+      setTimeout(maquinaEscribir, 100);
+    } else {
+      // Si se han escrito todas las letras, limpiar el setTimeout
+      // y establecer el estado en verdadero
+      clearTimeout(maquinaEscribir);
+      setActivar(!activar ? true : false);
+    }
+  };
+
+  useEffect(() => {
     maquinaEscribir();
   }, []);
 

@@ -77,7 +77,7 @@ function Formulario(props) {
         />
 
         <button type="submit" className="btn btn-primary mt-3">
-          {props.idActual === "" ? "Reservar" : "Modifcar Reserva"}
+          {props.idActual === "" ? "Reservar" : "Modificar Reserva"}
         </button>
       </div>
     </form>
