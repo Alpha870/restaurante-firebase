@@ -1,18 +1,15 @@
 .container-control{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin: 2rem;
-    gap: 1rem
+    gap: 3rem
 }
 
 .tarjeta {
-    margin: 1rem 0.1rem;
+    text-align: center;
 }
 
-.form-group{
-    display: flex;
-    flex-direction: column;
-}
 
 @media screen and (max-width: 768px) {
 

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import img from "../img/chatbot-kiu.gif";
+import Img from "../img/Img";
+import Button from 'react-bootstrap/Button';
+
 
 const Home = () => {
   const [letra, setLetra] = useState("");
@@ -20,7 +22,7 @@ const Home = () => {
 
   // Función para simular una máquina de escribir
   const maquinaEscribir = () => {
-    // recibe el valor anterior de letra (prevLetra) y devuelve un nuevo array 
+    // recibe el valor anterior de letra (prevLetra) y devuelve un nuevo array
     // que contiene todas las letras previas más la letra actual (texto[index]).
     setLetra((prevLetra) => [...prevLetra, texto[index]]);
     // Aumentar el contador
@@ -43,20 +45,16 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      <img src={img} alt="imagen chatbot" width="auto" height="200px" />
+      <Img />
       <div className="texto">
         <h2>{letra}</h2>
         {activar ? (
           <div className="botones">
             <Link to={"/autenticar"}>
-              <button type="button" className="btn btn-info">
-                Si, la tengo
-              </button>
+              <Button variant="info">Si, la tengo</Button>
             </Link>
             <Link to={"/reservas"}>
-              <button type="button" className="btn btn-light">
-                No, quiero reservar
-              </button>
+              <Button variant="light">No, quiero reservar</Button>
             </Link>
           </div>
         ) : (

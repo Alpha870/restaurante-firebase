@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Formulario from "../Formulario";
+import Formulario from "../Form/Formulario";
 import db from "../../firebase";
 import { toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
@@ -96,55 +96,54 @@ function Controlador() {
   return (
     <div className="container-control">
       <Formulario {...{ addOrEditar, idActual, datos }} />
-      <div className="col-md-8">
-        {datos.length > 0 ? (
-          datos.map((doc) => (
-            <div key={doc.id} className="tarjeta">
-              <Card className="text-center">
-                <Card.Header>Mi reserva</Card.Header>
-                <Card.Body>
-                  <Card.Title>ID: {doc.id}</Card.Title>
-                  <Card.Text>
-                    <h6>Nombre: {doc.nombre}</h6>
-                    <h6>Telefono: {doc.telefono}</h6>
-                    <h6>Fecha: {doc.fecha}</h6>
-                    <h6>Hora: {doc.hora}</h6>
-                  </Card.Text>
-                  <Button
-                    className="me-3"
-                    variant="warning"
-                    onClick={() => setIdActual(doc.id)}
-                  >
-                    Editar
-                  </Button>
+      {datos.length > 0 ? (
+        datos.map((doc) => (
+          <div key={doc.id} >
+            <Card className="tarjeta">
+              <Card.Header>Mi reserva</Card.Header>
+              <Card.Body>
+                <Card.Title>ID:{doc.id}</Card.Title>
+                <Card.Text>
+                  <h6>Nombre: {doc.nombre}</h6>
+                  <h6>Telefono: {doc.telefono}</h6>
+                  <h6>Fecha: {doc.fecha}</h6>
+                  <h6>Hora: {doc.hora}</h6>
+                </Card.Text>
+                <Button
+                  className="me-3"
+                  variant="warning"
+                  onClick={() => setIdActual(doc.id)}
+                >
+                  Editar
+                </Button>
 
-                  <Button
-                    variant="danger"
-                    onClick={() => eliminarDatos(doc.id)}
-                  >
-                    Eliminar
-                  </Button>
-                </Card.Body>
+                <Button variant="danger" onClick={() => eliminarDatos(doc.id)}>
+                  Eliminar
+                </Button>
+              </Card.Body>
 
-                <Card.Footer className="text-muted">
-                  <Link to={"/autenticar"}>
-                    <Button
-                      variant="success"
-                      onClick={() => copyToClipboard(doc.id)}
-                    >
-                      Ir al restaurante
-                    </Button>
-                  </Link>
-                </Card.Footer>
-              </Card>
-            </div>
-          ))
-        ) : (
-          <div className="card mt-3">
-            <h4>Puedes hacer tu reserva</h4>
+              <Card.Footer className="text-muted">
+                <Link to={"/autenticar"}>
+                  <Button
+                    variant="success"
+                    onClick={() => copyToClipboard(doc.id)}
+                  >
+                    Ir al restaurante
+                  </Button>
+                </Link>
+              </Card.Footer>
+            </Card>
           </div>
-        )}
-      </div>
+        ))
+      ) : (
+        <Card>
+          <Card.Header>Haz tu reserva</Card.Header>
+          <Card.Body>
+          </Card.Body>
+          <Card.Footer></Card.Footer>
+
+        </Card>
+      )}
     </div>
   );
 }

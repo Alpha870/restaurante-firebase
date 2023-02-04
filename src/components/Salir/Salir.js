@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import img from "../img/chatbot-kiu.gif";
+import Img from "../img/Img";
 
 const Salir = () => {
   const [letra, setLetra] = useState("");
@@ -33,7 +33,7 @@ const Salir = () => {
 
   return (
     <div className="homepage">
-      <img src={img} alt="imagen chatbot" width="auto" height="200px" />
+      <Img />
       <div className="texto">
         <h2>{letra}</h2>
         {activar ? (

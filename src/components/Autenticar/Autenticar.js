@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import img from "../img/chatbot-kiu.gif";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import "./Autenticar.css";
 import db from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Img from "../img/Img";
 
 const Autenticar = () => {
   const [valor, setValor] = useState("");
@@ -66,38 +71,42 @@ const Autenticar = () => {
 
   return (
     <div className="pageAutenticar">
-      <img src={img} alt="imagen-chatbot" width="auto" height="200px" />
+      <Img />
       <div className="textoAutenticar">
         <h2>{letra}</h2>
         {activar ? (
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Introduce tu id..."
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
-              name="nombre"
-              onChange={cambioInput}
-            />
-            <button
-              className="btn btn-outline-secondary"
-              type="submit"
-              onClick={comprobar}
-              id="button-addon2"
-            >
-              Enviar
-            </button>
-          </div>
+          <ButtonToolbar
+            className="mb-3"
+            aria-label="Toolbar with Button groups"
+          >
+            <InputGroup>
+              <Form.Control
+                type="text"
+                placeholder="Introduce tu id..."
+                aria-label="Input group example"
+                aria-describedby="btnGroupAddon"
+                name="nombre"
+                onChange={cambioInput}
+              />
+            </InputGroup>
+            <ButtonGroup className="me-2" aria-label="First group">
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={comprobar}
+                id="button-addon2"
+              >
+                Enviar
+              </Button>
+            </ButtonGroup>
+          </ButtonToolbar>
         ) : (
           <></>
         )}
         {aceptar ? (
           <div>
-            <Link to={'/sala'}>
-              <button type="button" className="btn btn-success">
-                Pasar al restaurante
-              </button>
+            <Link to={"/sala"}>
+              <Button variant="success">Pasar al restaurante</Button>
             </Link>
           </div>
         ) : (

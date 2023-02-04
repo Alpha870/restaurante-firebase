@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Sala.css";
-import img from "../img/chatbot-kiu.gif";
+import Img from "../img/Img";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
@@ -79,7 +79,7 @@ const Sala = () => {
         </div>
       ) : (
         <div className="homepage">
-          <img src={img} alt="imagen chatbot" width="auto" height="200px" />
+          <Img />
           <div className="texto">
             <h2>{letra}</h2>
           </div>
