@@ -1,24 +1,36 @@
 .pageAutenticar {
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    background-color:rgb(254, 250, 250);
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  background-color: rgb(254, 250, 250);
 }
-
 
 .textoAutenticar {
-    margin-top: 2rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: monospace;
+  width: 80%;
+}
+
+.inputAutenticar {
+  width: 80%;
+}
+
+.inputButton {
+  margin: 2rem 0rem;
+}
+
+@media screen and (max-width: 375px) {
+  .inputButton {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    font-family: monospace;
-    width: 80%;
-}
-
-.inputAutenticar{
-    width: 80%;
+    gap: 0.5rem;
+  }
 }

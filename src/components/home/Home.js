@@ -21,6 +21,7 @@ const Home = () => {
   let index = 0;
 
   // Función para simular una máquina de escribir
+  useEffect(() => {
   const maquinaEscribir = () => {
     // recibe el valor anterior de letra (prevLetra) y devuelve un nuevo array
     // que contiene todas las letras previas más la letra actual (texto[index]).
@@ -38,8 +39,6 @@ const Home = () => {
       setActivar(!activar ? true : false);
     }
   };
-
-  useEffect(() => {
     maquinaEscribir();
   }, []);
 

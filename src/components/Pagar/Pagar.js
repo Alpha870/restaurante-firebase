@@ -7,18 +7,18 @@ const Pagar = () => {
   const [letra, setLetra] = useState("");
   const [activar, setActivar] = useState(false);
 
+  // Convertir el texto a un array de letras
+  const texto = Array.from(
+    `  Espero que le haya gustado nuestro menú,
+    nuestros cheff siempre le ponen mucho cariño y esfuerzo.
+    Un momento dejeme que calcule su factura...                      
+    Tu factura asciende a 48$.
+    Con que quiere pagar en efectivo o tarjeta?
+    `
+  );
+  let index = 0;
+  // Función para simular una máquina de escribir
   useEffect(() => {
-    // Convertir el texto a un array de letras
-    const texto = Array.from(
-      `  Espero que le haya gustado nuestro menú,
-        nuestros cheff siempre le ponen mucho cariño y esfuerzo.
-        Un momento dejeme que calcule su factura...                      
-        Tu factura asciende a 48$.
-        Con que quiere pagar en efectivo o tarjeta?
-          `
-    );
-    let index = 0;
-    // Función para simular una máquina de escribir
     const maquinaEscribir = () => {
       setLetra((prevLetra) => [...prevLetra, texto[index]]);
       index++;
@@ -29,7 +29,6 @@ const Pagar = () => {
         setActivar(!activar ? true : false);
       }
     };
-
     maquinaEscribir();
   }, []);
 

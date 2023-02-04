@@ -16,18 +16,17 @@ const Salir = () => {
   let index = 0;
 
   // Función para simular una máquina de escribir
-  const maquinaEscribir = () => {
-    setLetra((prevLetra) => [...prevLetra, texto[index]]);
-    index++;
-    if (index < texto.length - 1) {
-      setTimeout(maquinaEscribir, 80);
-    } else {
-      clearInterval(maquinaEscribir);
-      setActivar(!activar ? true : false);
-    }
-  };
-  
   useEffect(() => {
+    const maquinaEscribir = () => {
+      setLetra((prevLetra) => [...prevLetra, texto[index]]);
+      index++;
+      if (index < texto.length - 1) {
+        setTimeout(maquinaEscribir, 80);
+      } else {
+        clearInterval(maquinaEscribir);
+        setActivar(!activar ? true : false);
+      }
+    };
     maquinaEscribir();
   }, []);
 

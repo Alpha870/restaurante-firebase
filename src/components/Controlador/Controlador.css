@@ -1,21 +1,12 @@
 .container-control{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 2rem;
     gap: 3rem
 }
 
 .tarjeta {
     text-align: center;
-}
-
-
-@media screen and (max-width: 768px) {
-
-    .container-control{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
 }

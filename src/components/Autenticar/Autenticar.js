@@ -76,7 +76,7 @@ const Autenticar = () => {
         <h2>{letra}</h2>
         {activar ? (
           <ButtonToolbar
-            className="mb-3"
+            className="inputButton"
             aria-label="Toolbar with Button groups"
           >
             <InputGroup>

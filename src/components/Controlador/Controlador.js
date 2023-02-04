@@ -63,21 +63,20 @@ function Controlador() {
   };
 
   //ACTUALIZA LOS CAMBIOS EN DB--------------------------
-  const actualizarDatos = () => {
-    const q = query(collection(db, "usuarios"));
-    //funcion que lee cambios en db
-    onSnapshot(q, (querySnapshot) => {
-      //docs[] tiene que estar dentro del la funcion
-      //para que setDatos lea siempre los cambios de onSnapshot
-      const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push({ id: doc.id, ...doc.data() });
-      });
-      setDatos(docs);
-    });
-  };
-
   useEffect(() => {
+    const actualizarDatos = () => {
+      const q = query(collection(db, "usuarios"));
+      //funcion que lee cambios en db
+      onSnapshot(q, (querySnapshot) => {
+        //docs[] tiene que estar dentro del la funcion
+        //para que setDatos lea siempre los cambios de onSnapshot
+        const docs = [];
+        querySnapshot.forEach((doc) => {
+          docs.push({ id: doc.id, ...doc.data() });
+        });
+        setDatos(docs);
+      });
+    };
     actualizarDatos();
   }, []);
 
@@ -98,7 +97,7 @@ function Controlador() {
       <Formulario {...{ addOrEditar, idActual, datos }} />
       {datos.length > 0 ? (
         datos.map((doc) => (
-          <div key={doc.id} >
+          <div key={doc.id}>
             <Card className="tarjeta">
               <Card.Header>Mi reserva</Card.Header>
               <Card.Body>
@@ -138,10 +137,8 @@ function Controlador() {
       ) : (
         <Card>
           <Card.Header>Haz tu reserva</Card.Header>
-          <Card.Body>
-          </Card.Body>
+          <Card.Body></Card.Body>
           <Card.Footer></Card.Footer>
-
         </Card>
       )}
     </div>

@@ -13,15 +13,16 @@ const Sala = () => {
   const [letra, setLetra] = useState("");
   const [activar, setActivar] = useState(false);
 
+  // Convertir el texto a un array de letras
+  const texto = Array.from(
+    `  Todo bien? te presento nuestro menú degustación
+    espero que lo disfrutes, buen provecho!!!
+    `
+  );
+  let index = 0;
+
+  // Función para simular una máquina de escribir
   useEffect(() => {
-    // Convertir el texto a un array de letras
-    const texto = Array.from(
-      `  Todo bien? te presento nuestro menú degustación
-      espero que lo disfrutes, buen provecho!!!
-        `
-    );
-    let index = 0;
-    // Función para simular una máquina de escribir
     const maquinaEscribir = () => {
       setLetra((prevLetra) => [...prevLetra, texto[index]]);
       index++;
@@ -32,7 +33,6 @@ const Sala = () => {
         setActivar(!activar ? true : false);
       }
     };
-
     maquinaEscribir();
   }, []);
 
@@ -71,7 +71,7 @@ const Sala = () => {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
-          <Link className="link" to={'/pagar'}>
+          <Link className="link" to={"/pagar"}>
             <Button className="mt-3" variant="success">
               Ya terminé, ir a pagar y salir
             </Button>
