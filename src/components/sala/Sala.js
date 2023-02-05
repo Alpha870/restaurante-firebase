@@ -40,7 +40,7 @@ const Sala = () => {
     <section className="contenedor">
       {activar ? (
         <div className="contenedor-carousel">
-          <Carousel>
+          <Carousel className="mb-3">
             <Carousel.Item>
               <img className="d-block w-100" src={P1} alt="First slide" />
               <Carousel.Caption>
@@ -72,7 +72,7 @@ const Sala = () => {
             </Carousel.Item>
           </Carousel>
           <Link className="link" to={"/pagar"}>
-            <Button className="mt-3" variant="success">
+            <Button className="mt-5" variant="success">
               Ya terminé, ir a pagar y salir
             </Button>
           </Link>

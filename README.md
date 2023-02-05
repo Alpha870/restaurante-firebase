@@ -23,6 +23,7 @@ Creo la carpeta de components donde iran alojados todos los componentes.
 -Sala
 -Pagar
 -Salir
+-Footer
 
 Creo los archivos de css y los conecto
 

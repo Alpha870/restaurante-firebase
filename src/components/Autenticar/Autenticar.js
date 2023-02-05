@@ -70,9 +70,9 @@ const Autenticar = () => {
   };
 
   return (
-    <div className="pageAutenticar">
+    <div className="homepage">
       <Img />
-      <div className="textoAutenticar">
+      <div className="texto">
         <h2>{letra}</h2>
         {activar ? (
           <ButtonToolbar

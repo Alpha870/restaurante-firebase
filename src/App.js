@@ -8,6 +8,7 @@ import Autenticar from "./components/Autenticar/Autenticar";
 import Sala from "./components/sala/Sala";
 import Salir from "./components/Salir/Salir";
 import Pagar from "./components/Pagar/Pagar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/pagar" element={<Pagar />} />
           <Route path="/salir" element={<Salir />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

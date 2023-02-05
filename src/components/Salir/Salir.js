@@ -35,8 +35,8 @@ const Salir = () => {
       <Img />
       <div className="texto">
         <h2>{letra}</h2>
-        {activar ? (
-          <div>
+        {activar && (
+          <div className="botones">
             <a href="https://github.com/Alpha870/restaurante-firebase">
               <box-icon
                 name="door-open"
@@ -45,8 +45,6 @@ const Salir = () => {
               ></box-icon>
             </a>
           </div>
-        ) : (
-          <></>
         )}
       </div>
     </div>

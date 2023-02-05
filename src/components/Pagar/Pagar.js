@@ -10,7 +10,7 @@ const Pagar = () => {
   // Convertir el texto a un array de letras
   const texto = Array.from(
     `  Espero que le haya gustado nuestro menú,
-    nuestros cheff siempre le ponen mucho cariño y esfuerzo.
+    nuestros cheffs siempre le ponen mucho cariño y esfuerzo.
     Un momento dejeme que calcule su factura...                      
     Tu factura asciende a 48$.
     Con que quiere pagar en efectivo o tarjeta?
@@ -38,8 +38,7 @@ const Pagar = () => {
         <Img />
         <div className="texto">
           <h2>{letra}</h2>
-        </div>
-        {activar ? (
+        {activar && (
           <div className="botones">
             <Link to={"/salir"}>
               <Button variant="light">Pagar en efectivo y salir</Button>
@@ -48,9 +47,8 @@ const Pagar = () => {
               <Button variant="info">Pagar con tarjeta y salir</Button>
             </Link>
           </div>
-        ) : (
-          <></>
         )}
+        </div>
       </div>
     </>
   );

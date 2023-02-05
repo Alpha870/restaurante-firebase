@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const Header = () => {
   return (
-    <>
+    <header>
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/"><box-icon name='home' color='#ffffff' ></box-icon></Navbar.Brand>
@@ -18,7 +18,7 @@ const Header = () => {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </header>
   )
 }
 

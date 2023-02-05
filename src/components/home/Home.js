@@ -47,7 +47,7 @@ const Home = () => {
       <Img />
       <div className="texto">
         <h2>{letra}</h2>
-        {activar ? (
+        {activar && (
           <div className="botones">
             <Link to={"/autenticar"}>
               <Button variant="info">Si, la tengo</Button>
@@ -56,8 +56,6 @@ const Home = () => {
               <Button variant="light">No, quiero reservar</Button>
             </Link>
           </div>
-        ) : (
-          <div></div>
         )}
       </div>
     </div>

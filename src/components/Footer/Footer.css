@@ -1,0 +1,45 @@
+.footer {
+    width: 100%;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.5);
+    bottom: 0px;
+  }
+
+  .footer p {
+    margin: 0rem 2rem;
+    font-size: small;
+  }
+  
+  .footer ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .icons {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  li a {
+    color: inherit;
+  }
+  li a:hover {
+    color: inherit;
+  }
+  
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .copyright li {
+    font-size: small;
+  }
+  
+  #github:hover {
+    color: white;
+  }
