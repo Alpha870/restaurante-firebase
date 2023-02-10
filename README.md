@@ -1,10 +1,11 @@
 ## INSTALACIÓN
 
-Instalo el modulo npx create react app
-Instalo el modulo firebase
-Instalo el modulo boostrap
-Instalo el modulo react boostrap
-Instalo el modulo react-router
+Instalo el modulo npx create react app,
+Instalo el modulo firebase,
+Instalo el modulo boostrap,
+Instalo el modulo react boostrap,
+Instalo el modulo react-router,
+Instalo el modulo react-toastify
 
 ## ELIMINAR ARCHIVOS INNECESARIOS
 
